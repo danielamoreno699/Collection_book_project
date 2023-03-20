@@ -3,66 +3,43 @@ const form = document.getElementById('form');
 const inputAuthor = document.getElementById('author');
 const inputBook = document.getElementById('book');
 
-//const bookDetails = JSON.parse(localStorage.getItem('newBookObject')) || null;
+const bookDetails = [];
 
-const bookDetails = [
-  {
-    author: 'J.K. Rowling',
-    book: 'Harry Potter and the Philosopher’s Stone',
-  },
-];
-
-// setting initial object
-const bookInformation = {
-  author: '',
-  book: '',
-};
-
-//Creating a dynamic LI template
 function addBook() {
   bookDetails.forEach((bookInfo, index) => {
     const newBook = document.createElement('li');
     newBook.innerHTML = `
-        <p class="book">${bookInfo.book}</p>
-        <p clas="author">${bookInfo.author}</p>
-        <button type="button" onclick="removeItem(${index})">Remove</button>
-        <hr>
-        `;
+      <p class="book">${bookInfo.book}</p>
+      <p clas="author">${bookInfo.author}</p>
+      <button type="button" onclick="removeItem(${index})">Remove</button>
+      <hr>
+    `;
     ul.appendChild(newBook);
   });
 }
 
-//remove function
 function removeItem(index) {
-  //console.log('click')
-  console.log(index);
-  const bookDetails2 = bookDetails.filter((book) => {
-    if (book.id === index) {
-      ul.removeChild('li');
-    } else {
-      return false;
-    }
-    console.log(bookDetails2);
-  });
-  //const filteredMethods = bookDetails.filter(item => !index.includes(item))
-  //console.log('removedIrtem', filteredMethod)
-  // console.log(bookDetails);
+  bookDetails.splice(index, 1);
+  const liToRemove = ul.querySelectorAll('li').item(index);
+  if (liToRemove === null) {
+    return;
+  }
+  liToRemove.remove();
 }
 
-removeItem();
-
-//form function
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  if (inputAuthor === '' || inputBook === '') {
+  if (inputAuthor.value === '' || inputBook.value === '') {
     return;
   }
-  const newBook = { author: inputAuthor.value, book: inputBook.value };
 
+  const newBook = { author: inputAuthor.value, book: inputBook.value };
   bookDetails.push(newBook);
-  console.log(bookDetails);
+
+  ul.innerHTML = '';
   addBook();
 
-  //localStorage.setItem('newBookObject', JSON.stringify(bookDetails));
+  inputAuthor.value = '';
+  inputBook.value = '';
 });
