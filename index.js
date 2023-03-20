@@ -7,15 +7,10 @@ const inputBook = document.getElementById('book');
 
 const bookDetails = [
   {
-    author: "author1",
-    book: "book1"
+    author: 'J.K. Rowling',
+    book: 'Harry Potter and the Philosopher’s Stone',
   },
-  {
-    author: "author2",
-    book: "book1"
-
-  }
-]
+];
 
 // setting initial object
 const bookInformation = {
@@ -37,20 +32,24 @@ function addBook() {
   });
 }
 
-
 //remove function
-function removeItem(index){
+function removeItem(index) {
   //console.log('click')
-  console.log(index)
-  const filteredMethod = bookDetails.splice(index, 1);
-    //const filteredMethods = bookDetails.filter(item => !index.includes(item))
-    //console.log('removedIrtem', filteredMethod)
-    console.log(bookDetails)
+  console.log(index);
+  const bookDetails2 = bookDetails.filter((book) => {
+    if (book.id === index) {
+      ul.removeChild('li');
+    } else {
+      return false;
+    }
+    console.log(bookDetails2);
+  });
+  //const filteredMethods = bookDetails.filter(item => !index.includes(item))
+  //console.log('removedIrtem', filteredMethod)
+  // console.log(bookDetails);
+}
 
-};
-removeItem()
-
-
+removeItem();
 
 //form function
 form.addEventListener('submit', (e) => {
