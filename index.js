@@ -6,6 +6,7 @@ const inputBook = document.getElementById('book');
 const bookDetails = [];
 
 function addBook() {
+  ul.innerHTML = ''; // clear the list first
   bookDetails.forEach((bookInfo, index) => {
     const newBook = document.createElement('li');
     newBook.innerHTML = `
@@ -14,7 +15,7 @@ function addBook() {
       <button type="button" onclick="removeItem(${index})">Remove</button>
       <hr>
     `;
-    ul.appendChild(newBook);
+    ul.insertBefore(newBook, ul.firstChild); // insert new book at the beginning
   });
 }
 
