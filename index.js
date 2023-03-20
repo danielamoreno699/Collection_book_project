@@ -7,25 +7,22 @@ const bookDetails = [];
 
 function addBook() {
   ul.innerHTML = ''; // clear the list first
-  bookDetails.forEach((bookInfo, index) => {
+  for (let i = bookDetails.length - 1; i >= 0; i--) {
+    const bookInfo = bookDetails[i];
     const newBook = document.createElement('li');
     newBook.innerHTML = `
       <p class="book">${bookInfo.book}</p>
-      <p clas="author">${bookInfo.author}</p>
-      <button type="button" onclick="removeItem(${index})">Remove</button>
+      <p class="author">${bookInfo.author}</p>
+      <button type="button" onclick="removeItem(${i})">Remove</button>
       <hr>
     `;
     ul.insertBefore(newBook, ul.firstChild); // insert new book at the beginning
-  });
+  }
 }
 
 function removeItem(index) {
   bookDetails.splice(index, 1);
-  const liToRemove = ul.querySelectorAll('li').item(index);
-  if (liToRemove === null) {
-    return;
-  }
-  liToRemove.remove();
+  addBook(); // update the list after removing the item
 }
 
 form.addEventListener('submit', (e) => {
@@ -36,10 +33,9 @@ form.addEventListener('submit', (e) => {
   }
 
   const newBook = { author: inputAuthor.value, book: inputBook.value };
-  bookDetails.push(newBook);
+  bookDetails.unshift(newBook); // add new book to the beginning of the array
 
-  ul.innerHTML = '';
-  addBook();
+  addBook(); // update the list after adding the item
 
   inputAuthor.value = '';
   inputBook.value = '';
