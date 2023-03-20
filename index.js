@@ -42,7 +42,10 @@ function addBook() {
 function removeItem(index){
   //console.log('click')
   console.log(index)
-    const filteredMethods = bookDetails.filter(item => !index.includes(item))
+  const filteredMethod = bookDetails.splice(index, 1);
+    //const filteredMethods = bookDetails.filter(item => !index.includes(item))
+    //console.log('removedIrtem', filteredMethod)
+    console.log(bookDetails)
 
 };
 removeItem()
