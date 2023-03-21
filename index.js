@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
+
 const ul = document.getElementById('ul-list');
 const form = document.getElementById('form');
 const inputAuthor = document.getElementById('author');
 const inputBook = document.getElementById('book');
 
-const bookDetails = [];
+const bookDetails = JSON.parse(localStorage.getItem('newBooksAdded')) || [];
 
 function addBook() {
   ul.innerHTML = '';
@@ -23,7 +25,10 @@ function addBook() {
 function removeItem(index) {
   bookDetails.splice(index, 1);
   addBook();
+  localStorage.setItem('newBooksAdded', JSON.stringify(bookDetails));
 }
+
+removeItem();
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();

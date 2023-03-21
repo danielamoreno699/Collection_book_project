@@ -1,0 +1,27 @@
+{
+  "name": "book_collection_project",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->\r   <img src=\"murple_logo.png\" alt=\"logo\" width=\"140\"  height=\"auto\" />\r   <br/>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-C-S-V/book_collection_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/J-C-S-V/book_collection_project/issues"
+  },
+  "homepage": "https://github.com/J-C-S-V/book_collection_project#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.27.5",
+    "hint": "^7.1.5"
+  }
+}
