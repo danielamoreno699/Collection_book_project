@@ -11,23 +11,28 @@ function addBook() {
     const bookInfo = bookDetails[i];
     const newBook = document.createElement('li');
     newBook.innerHTML = `
-      <p class="book">${bookInfo.book}</p>
-      <p class="author">${bookInfo.author}</p>
-      <button type="button" onclick="removeItem(${i})">Remove</button>
-      <hr>
-    `;
+    <p class="book">${bookInfo.book}</p>
+    <p class="author">${bookInfo.author}</p>
+    <button type="button" class="remove-button">Remove</button>
+    <hr>
+  `;
     ul.insertBefore(newBook, ul.firstChild);
   }
 }
 
-document.addEventListener('DOMContentLoaded', addBook);
-
-function removeItem(index) {
-  bookDetails.splice(index, 1);
+document.addEventListener('DOMContentLoaded', () => {
   addBook();
-  localStorage.setItem('bookDetails', JSON.stringify(bookDetails));
-}
-removeItem();
+  ul.addEventListener('click', (event) => {
+    if (event.target.classList.contains('remove-button')) {
+      const index = Array.from(
+        event.target.parentNode.parentNode.children,
+      ).indexOf(event.target.parentNode);
+      bookDetails.splice(index, 1);
+      addBook();
+      localStorage.setItem('bookDetails', JSON.stringify(bookDetails));
+    }
+  });
+});
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
