@@ -20,17 +20,15 @@ function addBook() {
   }
 }
 
-// Call addBook function when the page is loaded
 document.addEventListener('DOMContentLoaded', addBook);
 
-/* eslint-disable rule-you-want-to-disable */
 function removeItem(index) {
   bookDetails.splice(index, 1);
   addBook();
   localStorage.setItem('bookDetails', JSON.stringify(bookDetails));
 }
+removeItem();
 
-// Add book to the list
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   if (inputAuthor.value === '' || inputBook.value === '') {
