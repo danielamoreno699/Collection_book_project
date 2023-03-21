@@ -27,6 +27,8 @@ function removeItem(index) {
   addBook();
   localStorage.setItem('newBooksAdded', JSON.stringify(bookDetails));
 }
+
+// remove item
 removeItem();
 form.addEventListener('submit', (event) => {
   event.preventDefault();
