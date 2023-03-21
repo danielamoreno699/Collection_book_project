@@ -6,8 +6,8 @@ const inputBook = document.getElementById('book');
 const bookDetails = [];
 
 function addBook() {
-  ul.innerHTML = ''; 
-  for (let i = bookDetails.length - 1; i >= 0; i--) {
+  ul.innerHTML = '';
+  for (let i = bookDetails.length - 1; i >= 0; i -= 1) {
     const bookInfo = bookDetails[i];
     const newBook = document.createElement('li');
     newBook.innerHTML = `
@@ -16,13 +16,13 @@ function addBook() {
       <button type="button" onclick="removeItem(${i})">Remove</button>
       <hr>
     `;
-    ul.insertBefore(newBook, ul.firstChild); 
+    ul.insertBefore(newBook, ul.firstChild);
   }
 }
 
 function removeItem(index) {
   bookDetails.splice(index, 1);
-  addBook(); 
+  addBook();
 }
 
 form.addEventListener('submit', (event) => {
@@ -33,12 +33,9 @@ form.addEventListener('submit', (event) => {
   }
 
   const newBook = { author: inputAuthor.value, book: inputBook.value };
-  bookDetails.unshift(newBook); 
-
-  localStorage.setItem("NewBookAdded", JSON.stringify(bookDetails))
-
-  addBook(); 
-
+  bookDetails.unshift(newBook);
+  localStorage.setItem('NewBookAdded', JSON.stringify(bookDetails));
+  addBook();
   inputAuthor.value = '';
   inputBook.value = '';
 });
