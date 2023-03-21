@@ -27,16 +27,12 @@ function removeItem(index) {
   addBook();
   localStorage.setItem('newBooksAdded', JSON.stringify(bookDetails));
 }
-
 removeItem();
-
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-
   if (inputAuthor.value === '' || inputBook.value === '') {
     return;
   }
-
   const newBook = { author: inputAuthor.value, book: inputBook.value };
   bookDetails.unshift(newBook);
   localStorage.setItem('NewBookAdded', JSON.stringify(bookDetails));
