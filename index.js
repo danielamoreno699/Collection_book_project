@@ -3,7 +3,7 @@ const form = document.getElementById('form');
 const inputAuthor = document.getElementById('author');
 const inputBook = document.getElementById('book');
 
-let bookDetails = JSON.parse(localStorage.getItem('bookDetails')) || [];
+const bookDetails = JSON.parse(localStorage.getItem('bookDetails')) || [];
 
 function addBook() {
   ul.innerHTML = '';
@@ -23,6 +23,7 @@ function addBook() {
 // Call addBook function when the page is loaded
 document.addEventListener('DOMContentLoaded', addBook);
 
+/* eslint-disable rule-you-want-to-disable */
 function removeItem(index) {
   bookDetails.splice(index, 1);
   addBook();
