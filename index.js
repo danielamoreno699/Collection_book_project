@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
-
 const ul = document.getElementById('ul-list');
 const form = document.getElementById('form');
 const inputAuthor = document.getElementById('author');
 const inputBook = document.getElementById('book');
 
-const bookDetails = JSON.parse(localStorage.getItem('newBooksAdded')) || [];
+let bookDetails = JSON.parse(localStorage.getItem('bookDetails')) || [];
 
 function addBook() {
   ul.innerHTML = '';
@@ -22,22 +20,24 @@ function addBook() {
   }
 }
 
+// Call addBook function when the page is loaded
+document.addEventListener('DOMContentLoaded', addBook);
+
 function removeItem(index) {
   bookDetails.splice(index, 1);
   addBook();
-  localStorage.setItem('newBooksAdded', JSON.stringify(bookDetails));
+  localStorage.setItem('bookDetails', JSON.stringify(bookDetails));
 }
 
-// remove item
-removeItem();
+// Add book to the list
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   if (inputAuthor.value === '' || inputBook.value === '') {
     return;
   }
-  const newBook = { author: inputAuthor.value, book: inputBook.value };
-  bookDetails.unshift(newBook);
-  localStorage.setItem('NewBookAdded', JSON.stringify(bookDetails));
+  const newBooksAdded = { author: inputAuthor.value, book: inputBook.value };
+  bookDetails.unshift(newBooksAdded);
+  localStorage.setItem('bookDetails', JSON.stringify(bookDetails));
   addBook();
   inputAuthor.value = '';
   inputBook.value = '';
