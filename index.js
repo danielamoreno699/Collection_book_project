@@ -22,7 +22,6 @@ class UI {
     ul.insertBefore(li, ul.firstChild);
   }
 
-  
   // eslint-disable-next-line class-methods-use-this
   clearFieldsInputs() {
     const author = document.getElementById('author');
@@ -70,9 +69,9 @@ class Store {
       const authorElement = target.parentElement.parentElement.querySelector('.author');
       if (titleElement && authorElement) {
         const books = Store.getBooks();
-        const bookTitle = titleElement.textContent;
-        const bookAuthor = authorElement.textContent;
-        const index = books.findIndex((book) => book.title === bookTitle && book.author === bookAuthor);
+        const bookT = titleElement.textContent;
+        const bookA = authorElement.textContent;
+        const index = books.findIndex((book) => book.title === bookT && book.author === bookA);
         if (index !== -1) {
           books.splice(index, 1);
           localStorage.setItem('books', JSON.stringify(books));
@@ -106,10 +105,10 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
 });
 
-
 document.getElementById('tbody-container').addEventListener('click', (e) => {
+  // eslint-disable-next-line no-unused-vars
   const ui = new UI();
-  //ui.removeBook(e.target);
-  Store.removeBook(e.target)
+  // ui.removeBook(e.target);
+  Store.removeBook(e.target);
   e.preventDefault();
 });
