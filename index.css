@@ -6,3 +6,20 @@
     border: 1px solid;
 }
 
+.form-container{
+position: relative;
+width: 12.2rem;
+margin: auto;
+
+}
+
+.form-container__button{
+  position: absolute;
+  top: 108%;
+  right: 0%;
+
+}
+
+
+
+
