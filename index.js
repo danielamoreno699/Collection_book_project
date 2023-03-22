@@ -151,4 +151,14 @@ displayContact = () => {
   tableSection.classList.add('display-off');
 
   contactSection.classList.add('display-on');
+  contactSection.classList.remove('display-off')
+  contactSection.classList.remove('contact')
 };
+
+//display date
+
+  const span = document.getElementById('date')
+  const date = new Date()
+  span.innerHTML = date
+
+

@@ -7,16 +7,27 @@
   margin: auto;
 }
 
+
 .form-container {
   position: relative;
-  width: 12.2rem;
+  
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 72%;
+
+  margin-top: 2%;
 }
 
 .form-container__button {
   position: absolute;
   top: 108%;
   right: 0%;
+}
+
+.input-book{
+  padding: 2%;
+  border-radius: 10px;
 }
 
 .nav-bar-container {
@@ -43,4 +54,8 @@
 
 .display-on{
   display: block;
+}
+
+.contact{
+  display:none;
 }
