@@ -14,7 +14,7 @@ class UI {
     const li = document.createElement('tr');
 
     li.innerHTML = `
-    <td> <span class="author delete">${book.author}</span> by <span class="title delete">${book.title}</span> </td>
+    <td> <span class="author delete">"${book.author}"</span> by <span class="title delete">${book.title}</span> </td>
     <td><button class="delete">remove</button> </td>
    
   `;
@@ -22,17 +22,24 @@ class UI {
     ul.insertBefore(li, ul.firstChild);
   }
 
-  removeBook = (target) => {
+  removeBook(target) {
     if (target.className === 'delete') {
-      const titleElement = target.parentElement.querySelector('.title');
-      const authorElement = target.parentElement.querySelector('.author');
+      const titleElement = target.parentElement.parentElement.querySelector('.title');
+      const authorElement = target.parentElement.parentElement.querySelector('.author');
       if (titleElement && authorElement) {
-        titleElement.textContent = '';
-        authorElement.textContent = '';
+        const books = Store.getBooks();
+        const bookTitle = titleElement.textContent;
+        const bookAuthor = authorElement.textContent;
+        const index = books.findIndex((book) => book.title === bookTitle && book.author === bookAuthor);
+        if (index !== -1) {
+          books.splice(index, 1);
+          localStorage.setItem('books', JSON.stringify(books));
+        }
         target.parentElement.parentElement.remove();
       }
     }
   }
+  
 
   // eslint-disable-next-line class-methods-use-this
   clearFieldsInputs() {
