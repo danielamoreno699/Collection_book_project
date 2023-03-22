@@ -42,24 +42,40 @@
           id="navbarNavAltMarkup"
         >
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#" onclick="displayList()">List</a
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              onclick="displayList()"
+              >List</a
             ><span class="pipe-line">|</span>
-            <a class="nav-link active" aria-current="page" href="#"  onclick="displayForm()">Add new</a
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              onclick="displayForm()"
+              >Add new</a
             ><span class="pipe-line">|</span>
-            <a class="nav-link active" aria-current="page" href="#"  onclick="displayContact()">Contact</a>
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              onclick="displayContact()"
+              >Contact</a
+            >
           </div>
         </div>
       </div>
     </nav>
+
     <div class="container text-center">
-      
       <!--Table section-->
-    <section class="table-books" id="table-books">
-      <h2>All awesome Books</h2>
-      <table class="table w60 table table-striped table-hover">
-        <tbody id="tbody-container" class="tbody-container"></tbody>
-      </table>
-    </section>
+      <section class="table-books" id="table-books">
+        <h2>All awesome Books</h2>
+        <table class="table w60 table table-striped table-hover">
+          <tbody id="tbody-container" class="tbody-container"></tbody>
+        </table>
+      </section>
 
       <!---form section -->
       <section class="add-books display-off" id="add-book-section">
@@ -75,6 +91,19 @@
             Add
           </button>
         </form>
+      </section>
+
+      <section class="contact" id="contact">
+        <h2>Contact information</h2>
+        <p>
+          Do have any questions or you just want to say "Hello"? <br />
+          You can reach out to us!
+        </p>
+        <ul>
+          <li>Our e-mail: mail@mail.com</li>
+          <li>Our phone number: 004586534422</li>
+          <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
       </section>
     </div>
   </body>

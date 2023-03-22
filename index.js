@@ -70,18 +70,18 @@ class Store {
       const authorElement =
         target.parentElement.parentElement.querySelector('.author');
       //if (titleElement && authorElement) {
-        const books = Store.getBooks();
-        const bookT = titleElement.textContent;
-        const bookA = authorElement.textContent;
-        const index = books.findIndex(
-          (book) => book.title === bookT && book.author === bookA
-        );
-        
-        //if (index !== -1) {
-          books.splice(index, 1);
-          localStorage.setItem('books', JSON.stringify(books));
-        //}
-        target.parentElement.parentElement.remove();
+      const books = Store.getBooks();
+      const bookT = titleElement.textContent;
+      const bookA = authorElement.textContent;
+      const index = books.findIndex(
+        (book) => book.title === bookT && book.author === bookA
+      );
+
+      //if (index !== -1) {
+      books.splice(index, 1);
+      localStorage.setItem('books', JSON.stringify(books));
+      //}
+      target.parentElement.parentElement.remove();
       //}
     }
   }
@@ -120,30 +120,35 @@ document.getElementById('tbody-container').addEventListener('click', (e) => {
 });
 
 /* Three page section */
-displayList=()=>{
-  
-  console.log('click list')
-  const addSection = document.getElementById("add-book-section")
-  const tableSection = document.getElementById("table-books")
+const addSection = document.getElementById('add-book-section');
+const tableSection = document.getElementById('table-books');
+const contactSection = document.getElementById('contact');
+displayList = () => {
+  console.log('click list');
 
-
-  addSection.classList.remove('display-on')
-  tableSection.classList.add('display-on')
-  
+  addSection.classList.remove('display-on');
+  contactSection.classList.remove('display-on');
+  contactSection.classList.add('display-off');
+  tableSection.classList.add('display-on');
 };
 
-displayForm=()=>{
-  const addSection = document.getElementById("add-book-section")
-  const tableSection = document.getElementById("table-books")
+displayForm = () => {
+  console.log('click form');
 
-  tableSection.classList.remove("display-on")
-  addSection.classList.add("display-on")
-  
-  console.log('click form')
-  
+  tableSection.classList.remove('display-on');
+  contactSection.classList.remove('display-on');
+  contactSection.classList.add('display-off');
+  addSection.classList.add('display-on');
+  tableSection.classList.add('display-off');
 };
 
-displayContact=()=>{
-  console.log('click contact')
-  
+displayContact = () => {
+  console.log('click contact');
+
+  tableSection.classList.remove('display-on');
+  addSection.classList.remove('display-on');
+  addSection.classList.add('display-off');
+  tableSection.classList.add('display-off');
+
+  contactSection.classList.add('display-on');
 };
