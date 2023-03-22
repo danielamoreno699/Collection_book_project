@@ -69,19 +69,20 @@ class Store {
         target.parentElement.parentElement.querySelector('.title');
       const authorElement =
         target.parentElement.parentElement.querySelector('.author');
-      if (titleElement && authorElement) {
+      //if (titleElement && authorElement) {
         const books = Store.getBooks();
         const bookT = titleElement.textContent;
         const bookA = authorElement.textContent;
         const index = books.findIndex(
           (book) => book.title === bookT && book.author === bookA
         );
-        if (index !== -1) {
+        
+        //if (index !== -1) {
           books.splice(index, 1);
           localStorage.setItem('books', JSON.stringify(books));
-        }
+        //}
         target.parentElement.parentElement.remove();
-      }
+      //}
     }
   }
 }
@@ -119,3 +120,30 @@ document.getElementById('tbody-container').addEventListener('click', (e) => {
 });
 
 /* Three page section */
+displayList=()=>{
+  
+  console.log('click list')
+  const addSection = document.getElementById("add-book-section")
+  const tableSection = document.getElementById("table-books")
+
+
+  addSection.classList.remove('display-on')
+  tableSection.classList.add('display-on')
+  
+};
+
+displayForm=()=>{
+  const addSection = document.getElementById("add-book-section")
+  const tableSection = document.getElementById("table-books")
+
+  tableSection.classList.remove("display-on")
+  addSection.classList.add("display-on")
+  
+  console.log('click form')
+  
+};
+
+displayContact=()=>{
+  console.log('click contact')
+  
+};

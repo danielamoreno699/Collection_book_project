@@ -42,22 +42,27 @@
           id="navbarNavAltMarkup"
         >
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">List</a
+            <a class="nav-link active" aria-current="page" href="#" onclick="displayList()">List</a
             ><span class="pipe-line">|</span>
-            <a class="nav-link active" aria-current="page" href="#">Add new</a
+            <a class="nav-link active" aria-current="page" href="#"  onclick="displayForm()">Add new</a
             ><span class="pipe-line">|</span>
-            <a class="nav-link active" aria-current="page" href="#">Contact</a>
+            <a class="nav-link active" aria-current="page" href="#"  onclick="displayContact()">Contact</a>
           </div>
         </div>
       </div>
     </nav>
     <div class="container text-center">
+      
+      <!--Table section-->
+    <section class="table-books" id="table-books">
       <h2>All awesome Books</h2>
-
       <table class="table w60 table table-striped table-hover">
         <tbody id="tbody-container" class="tbody-container"></tbody>
       </table>
-      <section class="add-books display-off">
+    </section>
+
+      <!---form section -->
+      <section class="add-books display-off" id="add-book-section">
         <h2>Add a new book</h2>
         <form class="form-container" method="POST" action="#" id="form">
           <input type="text" name="author" id="author" placeholder="author" />
