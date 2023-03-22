@@ -112,5 +112,4 @@ document.getElementById('tbody-container').addEventListener('click', (e) => {
   // ui.removeBook(e.target);
   Store.removeBook(e.target);
   e.preventDefault();
-
 });
