@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 class Book {
   constructor(title, author) {
     this.title = title;
@@ -6,6 +7,7 @@ class Book {
 }
 
 class UI {
+  // eslint-disable-next-line class-methods-use-this
   addBookToTheList(book) {
     const ul = document.getElementById('ul-list');
 
@@ -16,16 +18,17 @@ class UI {
     <span class="author">${book.author}</span>
     <button class="delete">Remove</button>
   `;
+    // return li
     ul.insertBefore(li, ul.firstChild);
   }
 
-  removeBook(target) {
+  removeBook =(target) => {
     if (target.className === 'delete') {
       target.parentElement.remove();
     }
-    console.log('click1');
   }
 
+  // eslint-disable-next-line class-methods-use-this
   clearFieldsInputs() {
     const author = document.getElementById('author');
     const title = document.getElementById('book');
@@ -47,7 +50,7 @@ class Store {
 
   static displayBooks() {
     const books = Store.getBooks();
-    books.forEach(function (book) {
+    books.forEach((book) => {
       const ui = new UI();
       ui.addBookToTheList(book);
     });
@@ -63,12 +66,11 @@ class Store {
     const books = Store.getBooks();
 
     books.splice(index, 1);
-    //console.log('click2')
     localStorage.setItem('books', JSON.stringify(books));
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   Store.displayBooks();
 });
 
@@ -78,10 +80,10 @@ form.addEventListener('submit', (event) => {
   const author = document.getElementById('author').value;
   const title = document.getElementById('book').value;
 
-  //instantiate book
+  // instantiate book
   const book = new Book(author, title);
 
-  //instantiate UI
+  // instantiate UI
   const ui = new UI();
 
   if (author === '' || title === '') {
@@ -94,17 +96,14 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
 });
 
-//event listening for delete book
-document.getElementById('ul-list').addEventListener('click', function (e) {
+// event listening for delete book
+document.getElementById('ul-list').addEventListener('click', (e) => {
   const ui = new UI();
   ui.removeBook(e.target);
   const bookTitle = e.target.parentElement.querySelector('.title').textContent;
-  const bookAuthor =
-    e.target.parentElement.querySelector('.author').textContent;
+  const bookAuthor = e.target.parentElement.querySelector('.author').textContent;
   const books = Store.getBooks();
-  const index = books.findIndex(
-    (book) => book.title === bookTitle && book.author === bookAuthor
-  );
+  const index = books.findIndex((book) => book.title === bookTitle && book.author === bookAuthor);
   Store.removeBookFromStore(index);
   e.preventDefault();
 });
