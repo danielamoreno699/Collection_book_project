@@ -1,3 +1,20 @@
-.remove {
-  display: none;
+.tbody-container {
+  border: 3px solid black;
+}
+
+.table {
+  width: 67%;
+  margin: auto;
+}
+
+.form-container {
+  position: relative;
+  width: 12.2rem;
+  margin: auto;
+}
+
+.form-container__button {
+  position: absolute;
+  top: 108%;
+  right: 0%;
 }
