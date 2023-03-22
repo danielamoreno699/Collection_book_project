@@ -40,7 +40,6 @@ class UI {
     }
   }
   
-
   // eslint-disable-next-line class-methods-use-this
   clearFieldsInputs() {
     const author = document.getElementById('author');
@@ -87,16 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
   Store.displayBooks();
 });
 
-// Event listening to form
 const form = document.getElementById('form');
 form.addEventListener('submit', (event) => {
   const author = document.getElementById('author').value;
   const title = document.getElementById('book').value;
 
-  // instantiate book
   const book = new Book(author, title);
 
-  // instantiate UI
   const ui = new UI();
 
   if (author === '' || title === '') {
@@ -109,14 +105,9 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
 });
 
-// event listening for delete book
+
 document.getElementById('tbody-container').addEventListener('click', (e) => {
   const ui = new UI();
   ui.removeBook(e.target);
-  // const bookTitle = e.target.parentElement.querySelector('.title').textContent;
-  // const bookAuthor = e.target.parentElement.querySelector('.author').textContent;
-  // const books = Store.getBooks();
-  // const index = books.findIndex((book) => book.title === bookTitle && book.author === bookAuthor);
-  // Store.removeBookFromStore(index);
   e.preventDefault();
 });
