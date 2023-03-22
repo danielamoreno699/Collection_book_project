@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const form = document.getElementById('form');
+
 form.addEventListener('submit', (event) => {
   const author = document.getElementById('author').value;
   const title = document.getElementById('book').value;
@@ -111,4 +112,5 @@ document.getElementById('tbody-container').addEventListener('click', (e) => {
   // ui.removeBook(e.target);
   Store.removeBook(e.target);
   e.preventDefault();
+
 });
