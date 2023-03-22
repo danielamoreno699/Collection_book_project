@@ -9,14 +9,21 @@ class Book {
 class UI {
   // eslint-disable-next-line class-methods-use-this
   addBookToTheList(book) {
-    const ul = document.getElementById('ul-list');
+    const ul = document.getElementById('tbody-container');
 
-    const li = document.createElement('li');
+    const li = document.createElement('tr');
 
     li.innerHTML = `
-    <span class="title">${book.title}</span> by 
-    <span class="author">${book.author}</span>
-    <button class="delete">Remove</button>
+
+    // <td><span class="title">${book.title}</span> by 
+    // <span class="author">${book.author}</span></td>
+    // <td><button class="delete">Remove</button></td>
+
+  <tr>
+    <th scope="row">${book.title}</th>
+    <td>${book.author}</td>
+    <td><button>Remove</button> </td>
+  </tr> 
   `;
     // return li
     ul.insertBefore(li, ul.firstChild);

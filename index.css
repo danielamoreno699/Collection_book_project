@@ -1,9 +1,11 @@
 
+.tbody-container{
+  border: 3px solid black;
+}
+
 .table{
   width: 67%;
-    background-color: #e0ebe0;
-    margin: auto;
-    border: 1px solid;
+  margin: auto;
 }
 
 .form-container{
@@ -17,7 +19,6 @@ margin: auto;
   position: absolute;
   top: 108%;
   right: 0%;
-
 }
 
 
