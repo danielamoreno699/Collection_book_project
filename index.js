@@ -14,24 +14,23 @@ class UI {
     const li = document.createElement('tr');
 
     li.innerHTML = `
-
-    // <td><span class="title">${book.title}</span> by 
-    // <span class="author">${book.author}</span></td>
-    // <td><button class="delete">Remove</button></td>
-
-  <tr>
-    <th scope="row">${book.title}</th>
-    <td>${book.author}</td>
-    <td><button>Remove</button> </td>
-  </tr> 
+    <td> <span class="author delete">${book.author}</span> by <span class="title delete">${book.title}</span> </td>
+    <td><button class="delete">remove</button> </td>
+   
   `;
     // return li
     ul.insertBefore(li, ul.firstChild);
   }
 
-  removeBook =(target) => {
+  removeBook = (target) => {
     if (target.className === 'delete') {
-      target.parentElement.remove();
+      const titleElement = target.parentElement.querySelector('.title');
+      const authorElement = target.parentElement.querySelector('.author');
+      if (titleElement && authorElement) {
+        titleElement.textContent = '';
+        authorElement.textContent = '';
+        target.parentElement.parentElement.remove();
+      }
     }
   }
 
@@ -104,13 +103,13 @@ form.addEventListener('submit', (event) => {
 });
 
 // event listening for delete book
-document.getElementById('ul-list').addEventListener('click', (e) => {
+document.getElementById('tbody-container').addEventListener('click', (e) => {
   const ui = new UI();
   ui.removeBook(e.target);
-  const bookTitle = e.target.parentElement.querySelector('.title').textContent;
-  const bookAuthor = e.target.parentElement.querySelector('.author').textContent;
-  const books = Store.getBooks();
-  const index = books.findIndex((book) => book.title === bookTitle && book.author === bookAuthor);
-  Store.removeBookFromStore(index);
+  // const bookTitle = e.target.parentElement.querySelector('.title').textContent;
+  // const bookAuthor = e.target.parentElement.querySelector('.author').textContent;
+  // const books = Store.getBooks();
+  // const index = books.findIndex((book) => book.title === bookTitle && book.author === bookAuthor);
+  // Store.removeBookFromStore(index);
   e.preventDefault();
 });
