@@ -65,13 +65,17 @@ class Store {
 
   static removeBook(target) {
     if (target.className === 'delete') {
-      const titleElement = target.parentElement.parentElement.querySelector('.title');
-      const authorElement = target.parentElement.parentElement.querySelector('.author');
+      const titleElement =
+        target.parentElement.parentElement.querySelector('.title');
+      const authorElement =
+        target.parentElement.parentElement.querySelector('.author');
       if (titleElement && authorElement) {
         const books = Store.getBooks();
         const bookT = titleElement.textContent;
         const bookA = authorElement.textContent;
-        const index = books.findIndex((book) => book.title === bookT && book.author === bookA);
+        const index = books.findIndex(
+          (book) => book.title === bookT && book.author === bookA
+        );
         if (index !== -1) {
           books.splice(index, 1);
           localStorage.setItem('books', JSON.stringify(books));
@@ -113,3 +117,5 @@ document.getElementById('tbody-container').addEventListener('click', (e) => {
   Store.removeBook(e.target);
   e.preventDefault();
 });
+
+/* Three page section */

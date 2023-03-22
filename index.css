@@ -18,3 +18,25 @@
   top: 108%;
   right: 0%;
 }
+
+.nav-bar-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-bar-main-container {
+  margin: 0.5rem 4.8%;
+}
+
+.pipe-line {
+  color: white;
+  line-height: 2.4rem;
+}
+
+#padding-container {
+  padding: 0 4rem;
+}
+
+.display-off {
+  display: none;
+}
