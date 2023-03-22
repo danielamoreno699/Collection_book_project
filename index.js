@@ -151,14 +151,18 @@ displayContact = () => {
   tableSection.classList.add('display-off');
 
   contactSection.classList.add('display-on');
-  contactSection.classList.remove('display-off')
-  contactSection.classList.remove('contact')
+  contactSection.classList.remove('display-off');
+  contactSection.classList.remove('contact');
 };
 
 //display date
 
-  const span = document.getElementById('date')
-  const date = new Date()
-  span.innerHTML = date
+const span = document.getElementById('date');
+const today = new Date();
 
+const year = today.getFullYear();
+const month = today.getMonth() + 1;
+const day = today.getDate();
 
+const date = `${day}/${month}/${year}`;
+span.innerHTML = date;

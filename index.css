@@ -1,3 +1,7 @@
+body {
+  height: 100vh;
+}
+
 .tbody-container {
   border: 3px solid black;
 }
@@ -7,15 +11,13 @@
   margin: auto;
 }
 
-
 .form-container {
   position: relative;
-  
+
   margin: auto;
   display: flex;
   flex-direction: column;
   width: 72%;
-
   margin-top: 2%;
 }
 
@@ -25,7 +27,7 @@
   right: 0%;
 }
 
-.input-book{
+.input-book {
   padding: 2%;
   border-radius: 10px;
 }
@@ -52,10 +54,34 @@
   display: none;
 }
 
-.display-on{
+.display-on {
   display: block;
 }
 
-.contact{
-  display:none;
+.contact {
+  display: none;
+}
+
+#contact {
+  width: 58%;
+  margin: auto;
+}
+
+.footer {
+  text-align: left;
+  border: 3px solid black;
+}
+
+#date {
+  text-align: right;
+  margin-right: 5%;
+}
+
+.ul-container {
+  padding-left: 12rem;
+  padding-right: 10rem;
+}
+
+.ul-container li {
+  text-align: left;
 }
