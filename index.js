@@ -22,23 +22,6 @@ class UI {
     ul.insertBefore(li, ul.firstChild);
   }
 
-  removeBook(target) {
-    if (target.className === 'delete') {
-      const titleElement = target.parentElement.parentElement.querySelector('.title');
-      const authorElement = target.parentElement.parentElement.querySelector('.author');
-      if (titleElement && authorElement) {
-        const books = Store.getBooks();
-        const bookTitle = titleElement.textContent;
-        const bookAuthor = authorElement.textContent;
-        const index = books.findIndex((book) => book.title === bookTitle && book.author === bookAuthor);
-        if (index !== -1) {
-          books.splice(index, 1);
-          localStorage.setItem('books', JSON.stringify(books));
-        }
-        target.parentElement.parentElement.remove();
-      }
-    }
-  }
   
   // eslint-disable-next-line class-methods-use-this
   clearFieldsInputs() {
@@ -80,6 +63,24 @@ class Store {
     books.splice(index, 1);
     localStorage.setItem('books', JSON.stringify(books));
   }
+
+  static removeBook(target) {
+    if (target.className === 'delete') {
+      const titleElement = target.parentElement.parentElement.querySelector('.title');
+      const authorElement = target.parentElement.parentElement.querySelector('.author');
+      if (titleElement && authorElement) {
+        const books = Store.getBooks();
+        const bookTitle = titleElement.textContent;
+        const bookAuthor = authorElement.textContent;
+        const index = books.findIndex((book) => book.title === bookTitle && book.author === bookAuthor);
+        if (index !== -1) {
+          books.splice(index, 1);
+          localStorage.setItem('books', JSON.stringify(books));
+        }
+        target.parentElement.parentElement.remove();
+      }
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -108,6 +109,7 @@ form.addEventListener('submit', (event) => {
 
 document.getElementById('tbody-container').addEventListener('click', (e) => {
   const ui = new UI();
-  ui.removeBook(e.target);
+  //ui.removeBook(e.target);
+  Store.removeBook(e.target)
   e.preventDefault();
 });
