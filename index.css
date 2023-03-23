@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 72%;
-  margin-top: 2%;
+  margin-top: 5%;
 }
 
 .form-container__button {
@@ -50,7 +50,7 @@ body {
   padding: 0 4rem;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -78,4 +78,16 @@ body {
   text-align: left;
 }
 
+.footer {
+  border: 3px solid black;
+  margin-top: 16rem;
+}
 
+.form-h2 {
+  text-align: center;
+}
+
+.contact-h2 {
+  text-align: center;
+  margin-bottom: 10%;
+}

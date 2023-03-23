@@ -48,8 +48,6 @@
               aria-current="page"
               href="#table-books"
               onclick="displayList()"
-              
-             
               >List</a
             ><span class="pipe-line">|</span>
             <a
@@ -57,9 +55,7 @@
               class="nav-link active"
               aria-current="page"
               href="#add-book-section"
-              
               onclick="displayForm()"
-             
               >Add new</a
             ><span class="pipe-line">|</span>
             <a
@@ -68,21 +64,18 @@
               href="#contact"
               id="contactLink"
               onclick="displayContact()"
-              
               >Contact</a
             >
           </div>
         </div>
       </div>
     </nav>
-    <span id="date">
-        
-    </span>
+    <p id="date"></p>
 
-    <div class="container mt-5 ">
+    <div class="container mt-5 footer-layout">
       <!--Table section-->
       <section class="table-books text-center hidden" id="table-books">
-        <h2 >All awesome Books</h2>
+        <h2>All awesome Books</h2>
         <table class="table w60 table table-striped table-hover">
           <tbody id="tbody-container" class="tbody-container"></tbody>
         </table>
@@ -92,11 +85,21 @@
       <section class="add-books display-flex hidden" id="add-book-section">
         <h2 class="form-h2">Add a new book</h2>
         <form class="form-container" method="POST" action="#" id="form">
-          <input class="input-book"type="text" name="author" id="author" placeholder="author" />
+          <input
+            class="input-book"
+            type="text"
+            name="author"
+            id="author"
+            placeholder="author"
+          />
           <br />
-          <br />
-          <input class="input-book"type="text" name="book" id="book" placeholder="book" />
-          <br />
+          <input
+            class="input-book"
+            type="text"
+            name="book"
+            id="book"
+            placeholder="book"
+          />
           <br />
           <button class="form-container__button" type="submit" id="btnAdd">
             Add
@@ -105,7 +108,7 @@
       </section>
 
       <section class="contact hidden" id="contact">
-        <h2>Contact information</h2>
+        <h2 class="contact-h2">Contact information</h2>
         <p>
           Do have any questions or you just want to say "Hello"? <br />
           You can reach out to us!
@@ -116,6 +119,7 @@
           <li>Our address: Streetname 22, 84503 City, Country</li>
         </ul>
       </section>
+      <footer class="footer">Copyright ...</footer>
     </div>
   </body>
 </html>
