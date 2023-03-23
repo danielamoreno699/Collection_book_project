@@ -119,50 +119,102 @@ document.getElementById('tbody-container').addEventListener('click', (e) => {
   e.preventDefault();
 });
 
-/* Three page section */
-const addSection = document.getElementById('add-book-section');
-const tableSection = document.getElementById('table-books');
-const contactSection = document.getElementById('contact');
-displayList = () => {
-  console.log('click list');
+// single page application - Three page section
+const formSection = document.getElementById('add-book-section');
+  const listSection = document.getElementById('table-books');
+  const contactSection = document.getElementById('contact');
+  const linkList = document.getElementById('listLink');
+  console.log(linkList)
+  const linkForm = document.getElementById('formLink');
+  const linkContact = document.getElementById('contactLink');
+  
+  
+  displayList = () => {
+    console.log('click list');
+  
+          listSection.classList.remove('hidden');
+          formSection.classList.add('hidden');
+          contactSection.classList.add('hidden')
+   };
+  
+  displayForm = () => {
+    console.log('click form');
+    
+    formSection.classList.remove('hidden');
+    listSection.classList.add('hidden');
+    contactSection.classList.add('hidden');
+  };
+  
+  displayContact = () => {
+    console.log('click contact');
+    contactSection.classList.remove('hidden');
+    listSection.classList.add('hidden');
+    formSection.classList.add('hidden');
+  
+  };
+  
+  linkList.addEventListener('click', function(event) {
+    event.preventDefault();
+    displayList();
+    console.log('click addev list')
+  });
+  
+  
+  linkForm.addEventListener('click', function(event) {
+    event.preventDefault();
+    displayForm();
+    console.log('click addevent form')
+  });
+  
+  
+  linkContact.addEventListener('click', function(event) {
+    event.preventDefault();
+    displayContact();
+  });
+  
+  //display date
+  
+    const span = document.getElementById('date')
+    const date = new Date()
+    span.innerHTML = date
+  
+  //
+  const displayPage = (currentPage) => {
 
-  addSection.classList.remove('display-on');
-  contactSection.classList.remove('display-on');
-  contactSection.classList.add('display-off');
-  tableSection.classList.add('display-on');
-};
+    const sections = document.querySelectorAll('section');
+  
+    for (let section of sections) {
 
-displayForm = () => {
-  console.log('click form');
-
-  tableSection.classList.remove('display-on');
-  contactSection.classList.remove('display-on');
-  contactSection.classList.add('display-off');
-  addSection.classList.add('display-on');
-  tableSection.classList.add('display-off');
-};
-
-displayContact = () => {
-  console.log('click contact');
-
-  tableSection.classList.remove('display-on');
-  addSection.classList.remove('display-on');
-  addSection.classList.add('display-off');
-  tableSection.classList.add('display-off');
-
-  contactSection.classList.add('display-on');
-  contactSection.classList.remove('display-off');
-  contactSection.classList.remove('contact');
-};
-
-//display date
-
-const span = document.getElementById('date');
-const today = new Date();
-
-const year = today.getFullYear();
-const month = today.getMonth() + 1;
-const day = today.getDate();
-
-const date = `${day}/${month}/${year}`;
-span.innerHTML = date;
+      if (section.id === currentPage) {
+        section.classList.remove('hidden');
+      } else {
+     
+        section.classList.add('hidden');
+      }
+    }
+  };
+ 
+  
+  const getCurrentPage = () => {
+    const currentPage = localStorage.getItem('currentPage');
+    return currentPage ? currentPage : 'List';
+  };
+  
+  const handleLinkClick = (event) => {
+    event.preventDefault();
+    const currentPage = event.target.getAttribute('href').substring(1);
+    localStorage.setItem('currentPage', currentPage);
+    displayPage(currentPage);
+  };
+  
+  const displayCurrentPage = () => {
+    const currentPage = getCurrentPage();
+    displayPage(currentPage);
+  };
+  
+  const links = document.querySelectorAll('a');
+  links.forEach((link) => {
+    (link.addEventListener('click', handleLinkClick));
+  });
+  
+  window.addEventListener('load', displayCurrentPage);

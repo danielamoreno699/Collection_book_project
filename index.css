@@ -50,15 +50,7 @@ body {
   padding: 0 4rem;
 }
 
-.display-off {
-  display: none;
-}
-
-.display-on {
-  display: block;
-}
-
-.contact {
+.hidden{
   display: none;
 }
 

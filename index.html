@@ -43,35 +43,45 @@
         >
           <div class="navbar-nav">
             <a
+              id="listLink"
               class="nav-link active"
               aria-current="page"
-              href="#"
+              href="#table-books"
               onclick="displayList()"
+              
+             
               >List</a
             ><span class="pipe-line">|</span>
             <a
+              id="formLink"
               class="nav-link active"
               aria-current="page"
-              href="#"
+              href="#add-book-section"
+              
               onclick="displayForm()"
+             
               >Add new</a
             ><span class="pipe-line">|</span>
             <a
               class="nav-link active"
               aria-current="page"
-              href="#"
+              href="#contact"
+              id="contactLink"
               onclick="displayContact()"
+              
               >Contact</a
             >
           </div>
         </div>
       </div>
     </nav>
-    <p id="date"></p>
+    <span id="date">
+        
+    </span>
 
     <div class="container mt-5 text-center">
       <!--Table section-->
-      <section class="table-books" id="table-books">
+      <section class="table-books hidden" id="table-books">
         <h2>All awesome Books</h2>
         <table class="table w60 table table-striped table-hover">
           <tbody id="tbody-container" class="tbody-container"></tbody>
@@ -79,25 +89,13 @@
       </section>
 
       <!---form section -->
-      <section class="add-books display-off" id="add-book-section">
+      <section class="add-books  hidden" id="add-book-section">
         <h2>Add a new book</h2>
         <form class="form-container" method="POST" action="#" id="form">
-          <input
-            class="input-book"
-            type="text"
-            name="author"
-            id="author"
-            placeholder="author"
-          />
+          <input class="input-book"type="text" name="author" id="author" placeholder="author" />
           <br />
           <br />
-          <input
-            class="input-book"
-            type="text"
-            name="book"
-            id="book"
-            placeholder="book"
-          />
+          <input class="input-book"type="text" name="book" id="book" placeholder="book" />
           <br />
           <br />
           <button class="form-container__button" type="submit" id="btnAdd">
@@ -106,19 +104,18 @@
         </form>
       </section>
 
-      <section class="contact" id="contact">
+      <section class="contact hidden" id="contact">
         <h2>Contact information</h2>
         <p>
           Do have any questions or you just want to say "Hello"? <br />
           You can reach out to us!
         </p>
-        <ul class="ul-container">
+        <ul>
           <li>Our e-mail: mail@mail.com</li>
           <li>Our phone number: 004586534422</li>
           <li>Our address: Streetname 22, 84503 City, Country</li>
         </ul>
       </section>
-      <p class="footer">Copyright ...</p>
     </div>
   </body>
 </html>
