@@ -20,7 +20,7 @@
     />
     <title>Book List Colleciton</title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-dark nav-bar-main-container"
     >
@@ -49,7 +49,7 @@
               href="#table-books"
               onclick="displayList()"
               >List</a
-            ><span class="pipe-line">|</span>
+            >
             <a
               id="formLink"
               class="nav-link active"
@@ -57,7 +57,7 @@
               href="#add-book-section"
               onclick="displayForm()"
               >Add new</a
-            ><span class="pipe-line">|</span>
+            >
             <a
               class="nav-link active"
               aria-current="page"
@@ -84,7 +84,7 @@
       <!---form section -->
       <section class="add-books display-flex hidden" id="add-book-section">
         <h2 class="form-h2">Add a new book</h2>
-        <form class="form-container" method="POST" action="#" id="form">
+        <form class="form-container position-relative" method="POST" action="#" id="form">
           <input
             class="input-book"
             type="text"
@@ -101,9 +101,10 @@
             placeholder="book"
           />
           <br />
-          <button class="form-container__button" type="submit" id="btnAdd">
-            Add
+          <button class=" btn btn-primary btn-sm w19 float-end form-container__button" type="submit" id="btnAdd">
+            Add Book
           </button>
+          
         </form>
       </section>
 
@@ -119,7 +120,17 @@
           <li>Our address: Streetname 22, 84503 City, Country</li>
         </ul>
       </section>
-      <footer class="footer">Copyright ...</footer>
+     
     </div>
+
+    <footer class="bg-dark  text-white mt-auto ">
+       
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2023 Copyright
+        <a class="text-white" href="https://mdbootstrap.com/"></a>
+      </div>
+      <!-- Copyright -->
+    </footer>
   </body>
 </html>

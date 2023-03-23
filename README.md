@@ -3,11 +3,11 @@
   <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>[/*TITLE]</b></h3>
+  <h3><b>Book Collection</b></h3>
 
 </div>
 
-# [/*TITLE]
+# [Book Collection]
 
 <!-- TABLE OF CONTENTS -->
 
@@ -34,9 +34,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [/*TITLE] <a name="about-project"></a>
+# 📖 [Book Collection] <a name="about-project"></a>
 
-**[/*TITLE]** is my first project with Microverse 😀. Here we'll see a very basic web page using the standards of the industry 💻
+**[Book Collection]** this is project displays a list a books when user submits the form
 
 ## 🛠 Built With <a name="built-with"></a>
 

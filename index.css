@@ -36,10 +36,6 @@ body {
   justify-content: flex-end;
 }
 
-.nav-bar-main-container {
-  margin: 0.5rem 4.8%;
-}
-
 .pipe-line {
   color: white;
   line-height: 2.4rem;
@@ -85,4 +81,12 @@ body {
 .contact-h2 {
   text-align: center;
   margin-bottom: 10%;
+}
+
+.w19{
+  width: 19%
+}
+
+.position-relative{
+  position: relative;
 }
