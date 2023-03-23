@@ -117,46 +117,38 @@ const formSection = document.getElementById('add-book-section');
 const listSection = document.getElementById('table-books');
 const contactSection = document.getElementById('contact');
 const linkList = document.getElementById('listLink');
-console.log(linkList);
 const linkForm = document.getElementById('formLink');
 const linkContact = document.getElementById('contactLink');
 
-displayList = () => {
-  console.log('click list');
-
+const displayList = () => {
   listSection.classList.remove('hidden');
   formSection.classList.add('hidden');
   contactSection.classList.add('hidden');
 };
 
-displayForm = () => {
-  console.log('click form');
-
+const displayForm = () => {
   formSection.classList.remove('hidden');
   listSection.classList.add('hidden');
   contactSection.classList.add('hidden');
 };
 
-displayContact = () => {
-  console.log('click contact');
+const displayContact = () => {
   contactSection.classList.remove('hidden');
   listSection.classList.add('hidden');
   formSection.classList.add('hidden');
 };
 
-linkList.addEventListener('click', function (event) {
+linkList.addEventListener('click', (event) => {
   event.preventDefault();
   displayList();
-  console.log('click addev list');
 });
 
-linkForm.addEventListener('click', function (event) {
+linkForm.addEventListener('click', (event) => {
   event.preventDefault();
   displayForm();
-  console.log('click addevent form');
 });
 
-linkContact.addEventListener('click', function (event) {
+linkContact.addEventListener('click', (event) => {
   event.preventDefault();
   displayContact();
 });
@@ -168,7 +160,7 @@ span.innerHTML = date;
 const displayPage = (currentPage) => {
   const sections = document.querySelectorAll('section');
 
-  for (let section of sections) {
+  for (const section of sections) {
     if (section.id === currentPage) {
       section.classList.remove('hidden');
     } else {
@@ -179,7 +171,11 @@ const displayPage = (currentPage) => {
 
 const getCurrentPage = () => {
   const currentPage = localStorage.getItem('currentPage');
-  return currentPage ? currentPage : 'add-book-section';
+  if (currentPage) {
+    return currentPage;
+  } else {
+    return 'add-book-section';
+  }
 };
 
 const handleLinkClick = (event) => {

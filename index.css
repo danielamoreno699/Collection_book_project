@@ -13,7 +13,6 @@ body {
 
 .form-container {
   position: relative;
-
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -62,6 +61,7 @@ body {
 .footer {
   text-align: left;
   border: 3px solid black;
+  margin-top: 16rem;
 }
 
 #date {
@@ -76,11 +76,6 @@ body {
 
 .ul-container li {
   text-align: left;
-}
-
-.footer {
-  border: 3px solid black;
-  margin-top: 16rem;
 }
 
 .form-h2 {
