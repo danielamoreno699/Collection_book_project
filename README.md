@@ -129,6 +129,13 @@ GitHub pages
 - Twitter: [@twitterhandle](https://twitter.com/juansan0)
 - LinkedIn: [@LinkedIn](https://www.linkedin.com/in/juan-carlos-sanchez-vargas-a308b014b/)
 
+👷‍♂️ **daniela**
+
+- GitHub: [@daniela](https://github.com/danielamoreno699)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/daniela-moreno-06a139124/)
+- twitter : [twitter](@Daniela38932450)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

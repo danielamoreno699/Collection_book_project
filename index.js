@@ -18,7 +18,6 @@ class UI {
     <td><button class="delete">remove</button> </td>
    
   `;
-    // return li
     ul.insertBefore(li, ul.firstChild);
   }
 
@@ -67,17 +66,16 @@ class Store {
     if (target.className === 'delete') {
       const titleElement = target.parentElement.parentElement.querySelector('.title');
       const authorElement = target.parentElement.parentElement.querySelector('.author');
-      if (titleElement && authorElement) {
-        const books = Store.getBooks();
-        const bookT = titleElement.textContent;
-        const bookA = authorElement.textContent;
-        const index = books.findIndex((book) => book.title === bookT && book.author === bookA);
-        if (index !== -1) {
-          books.splice(index, 1);
-          localStorage.setItem('books', JSON.stringify(books));
-        }
-        target.parentElement.parentElement.remove();
-      }
+      const books = Store.getBooks();
+      const bookT = titleElement.textContent;
+      const bookA = authorElement.textContent;
+      const index = books.findIndex(
+        (book) => book.title === bookT && book.author === bookA,
+      );
+
+      books.splice(index, 1);
+      localStorage.setItem('books', JSON.stringify(books));
+      target.parentElement.parentElement.remove();
     }
   }
 }
@@ -109,7 +107,89 @@ form.addEventListener('submit', (event) => {
 document.getElementById('tbody-container').addEventListener('click', (e) => {
   // eslint-disable-next-line no-unused-vars
   const ui = new UI();
-  // ui.removeBook(e.target);
   Store.removeBook(e.target);
   e.preventDefault();
 });
+
+const formSection = document.getElementById('add-book-section');
+const listSection = document.getElementById('table-books');
+const contactSection = document.getElementById('contact');
+const linkList = document.getElementById('listLink');
+const linkForm = document.getElementById('formLink');
+const linkContact = document.getElementById('contactLink');
+
+const displayList = () => {
+  listSection.classList.remove('hidden');
+  formSection.classList.add('hidden');
+  contactSection.classList.add('hidden');
+};
+
+const displayForm = () => {
+  formSection.classList.remove('hidden');
+  listSection.classList.add('hidden');
+  contactSection.classList.add('hidden');
+};
+
+const displayContact = () => {
+  contactSection.classList.remove('hidden');
+  listSection.classList.add('hidden');
+  formSection.classList.add('hidden');
+};
+
+linkList.addEventListener('click', (event) => {
+  event.preventDefault();
+  displayList();
+});
+
+linkForm.addEventListener('click', (event) => {
+  event.preventDefault();
+  displayForm();
+});
+
+linkContact.addEventListener('click', (event) => {
+  event.preventDefault();
+  displayContact();
+});
+
+const span = document.getElementById('date');
+const date = new Date();
+span.innerHTML = date;
+
+const displayPage = (currentPage) => {
+  const sections = document.querySelectorAll('section');
+  // eslint-disable-next-line no-restricted-syntax
+  for (const section of sections) {
+    if (section.id === currentPage) {
+      section.classList.remove('hidden');
+    } else {
+      section.classList.add('hidden');
+    }
+  }
+};
+
+const getCurrentPage = () => {
+  const currentPage = localStorage.getItem('currentPage');
+  if (currentPage) {
+    return currentPage;
+  }
+  return 'add-book-section';
+};
+
+const handleLinkClick = (event) => {
+  event.preventDefault();
+  const currentPage = event.target.getAttribute('href').substring(1);
+  localStorage.setItem('currentPage', currentPage);
+  displayPage(currentPage);
+};
+
+const displayCurrentPage = () => {
+  const currentPage = getCurrentPage();
+  displayPage(currentPage);
+};
+
+const links = document.querySelectorAll('a');
+links.forEach((link) => {
+  link.addEventListener('click', handleLinkClick);
+});
+
+window.addEventListener('load', displayCurrentPage);
