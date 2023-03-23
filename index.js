@@ -64,15 +64,13 @@ class Store {
 
   static removeBook(target) {
     if (target.className === 'delete') {
-      const titleElement =
-        target.parentElement.parentElement.querySelector('.title');
-      const authorElement =
-        target.parentElement.parentElement.querySelector('.author');
+      const titleElement = target.parentElement.parentElement.querySelector('.title');
+      const authorElement = target.parentElement.parentElement.querySelector('.author');
       const books = Store.getBooks();
       const bookT = titleElement.textContent;
       const bookA = authorElement.textContent;
       const index = books.findIndex(
-        (book) => book.title === bookT && book.author === bookA
+        (book) => book.title === bookT && book.author === bookA,
       );
 
       books.splice(index, 1);
@@ -173,9 +171,9 @@ const getCurrentPage = () => {
   const currentPage = localStorage.getItem('currentPage');
   if (currentPage) {
     return currentPage;
-  } else {
+  } 
     return 'add-book-section';
-  }
+ 
 };
 
 const handleLinkClick = (event) => {
