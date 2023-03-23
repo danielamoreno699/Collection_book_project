@@ -157,7 +157,7 @@ span.innerHTML = date;
 
 const displayPage = (currentPage) => {
   const sections = document.querySelectorAll('section');
-
+// eslint-disable-next-line no-restricted-syntax
   for (const section of sections) {
     if (section.id === currentPage) {
       section.classList.remove('hidden');
@@ -172,8 +172,7 @@ const getCurrentPage = () => {
   if (currentPage) {
     return currentPage;
   } 
-    return 'add-book-section';
- 
+  return 'add-book-section';
 };
 
 const handleLinkClick = (event) => {
